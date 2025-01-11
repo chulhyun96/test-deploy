@@ -25,13 +25,6 @@ jobs:
           chmod 777 ./mvnw
           ./mvnw clean package -Dtestskip
 
-      - uses: actions/checkout@v3
-
-      - name: Verify directory
-        run:
-          pwd # 현재 디렉토리 출력
-          ls -la # 현재 디렉토리의 파일 목록 출력
-
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
