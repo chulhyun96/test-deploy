@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: kr.co.shortenurlservice.application.SimpleShortenUrlServiceUnitTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in kr.co.shortenurlservice.application.SimpleShortenUrlServiceUnitTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in kr.co.shortenurlservice.application.SimpleShortenUrlServiceUnitTest
