@@ -100,5 +100,11 @@ jobs:
           host: ${{ secrets.LIVE_SERVER_IP }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo docker stop ${{env.CURRENT_UPSTREAM}}
-            sudo docker rm ${{env.CURRENT_UPSTREAM}}
+              if sudo docker ps -a --format '{{.Names}}' | grep -w ${{env.CURRENT_UPSTREAM}}; then
+                 echo "Stopping and removing container ${{env.CURRENT_UPSTREAM}}..."
+                 sudo docker stop ${{env.CURRENT_UPSTREAM}}
+                 sudo docker rm ${{env.CURRENT_UPSTREAM}}
+              else
+                 echo "No container found with the name ${{env.CURRENT_UPSTREAM }}. Skipping stop and remove."
+              fi
+          
