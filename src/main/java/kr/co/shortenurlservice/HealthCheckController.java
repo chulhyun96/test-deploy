@@ -30,6 +30,7 @@ public class HealthCheckController {
     responseData.put("env", env);
     responseData.put("port", port);
     responseData.put("serverAddress", serverAddress);
+    responseData.put("name","shortenUrlService");
     return ResponseEntity.ok(responseData);
   }
 
