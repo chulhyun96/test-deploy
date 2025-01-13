@@ -31,10 +31,10 @@ public class HealthCheckController {
     // 서버의 상태가 잘 돌아가고 있는지 확인용
     Map<String, String> responseData = new TreeMap<>();
     responseData.put("env", env);
-    responseData.put("port", port);
     responseData.put("serverAddress", serverAddress);
     responseData.put("name","shortenUrlService");
     responseData.put("serverName",serverName);
+    responseData.put("port",port);
     return ResponseEntity.ok(responseData);
   }
 
