@@ -35,6 +35,11 @@ public class HealthCheckController {
     responseData.put("name","shortenUrlService");
     responseData.put("serverName",serverName);
     responseData.put("port",port);
+    if (env.equals("blue")) {
+      responseData.put("status", "BLUE");
+    } else {
+      responseData.put("status", "GREEN");
+    }
     return ResponseEntity.ok(responseData);
   }
 
