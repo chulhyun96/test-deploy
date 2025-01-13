@@ -100,3 +100,9 @@ jobs:
           script: |
             sudo docker stop ${{env.CURRENT_UPSTREAM}}
             sudo docker rm ${{env.CURRENT_UPSTREAM}}
+            CURRENT_IMAGE=$(docker ps --filter "name=blue" --format "{{.Image}}")
+            echo "Current image used by blue container: $CURRENT_IMAGE"
+            docker rmi $(docker images -q | grep -v $CURRENT_IMAGE | tail -n +4)
+            docker rmi $(docker images -f "dangling=true" -q)
+            echo "Remaining images after cleanup:"
+            docker images
