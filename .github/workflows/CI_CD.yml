@@ -101,7 +101,11 @@ jobs:
             if [ "${{ env.CURRENT_UPSTREAM }}" == "green" ]; then
                 sudo docker stop blue
                 sudo docker rm blue
+                sudo docker pull cheolhyeon96/plist:latest
+                sudo docker run -d --name green -p 8081:8081 cheolhyeon96/plist:latest
             else
                 sudo docker stop green
                 sudo docker rm green
+                sudo docker pull cheolhyeon96/plist:latest
+                sudo docker run -d --name blue -p 8080:8080 cheolhyeon96/plist:latest
             fi
