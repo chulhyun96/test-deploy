@@ -27,7 +27,6 @@ public class HealthCheckController {
 
   @GetMapping("/hc")
   public ResponseEntity<?> healthCheck() {
-    // 용도 -> 엔진엑스 서버가 blue랑 연결되어있는 상태에서 green이 켜지면 옮겨준다거나
     Map<String, String> responseData = new TreeMap<>();
     responseData.put("env", env);
     responseData.put("serverAddress", serverAddress);
