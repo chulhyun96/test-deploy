@@ -98,5 +98,10 @@ jobs:
           host: ${{ secrets.LIVE_SERVER_IP }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo docker stop ${{ env.CURRENT_UPSTREAM }}
-            sudo docker rm ${{ env.CURRENT_UPSTREAM }}
+            if [ "${{ env.CURRENT_UPSTREAM }}" == "green" ]; then
+                sudo docker stop blue
+                sudo docker rm blue
+            else
+                sudo docker stop green
+                sudo docker rm green
+            fi
