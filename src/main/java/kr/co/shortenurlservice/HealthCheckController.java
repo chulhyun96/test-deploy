@@ -20,6 +20,9 @@ public class HealthCheckController {
   @Value("${server.serverAddress}")
   private String serverAddress;
 
+  @Value("${serverName}")
+  private String serverName;
+
 
 
   @GetMapping("/hc")
@@ -31,6 +34,7 @@ public class HealthCheckController {
     responseData.put("port", port);
     responseData.put("serverAddress", serverAddress);
     responseData.put("name","shortenUrlService");
+    responseData.put("serverName",serverName);
     return ResponseEntity.ok(responseData);
   }
 
